@@ -25,4 +25,5 @@ def runCmd(cmd):
 
 if __name__ == "__main__":
     cmd = "ls -la ."
-    print runCmd(cmd)
+    ret = runCmd(cmd)
+    print "return value from cmd: %d" % ret
