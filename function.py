@@ -12,7 +12,6 @@
 # GNU General Public License for more details.
 
 def message():
-
 	print "My message to users..."
 
 if __name__ == "__main__":
