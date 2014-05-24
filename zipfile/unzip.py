@@ -37,7 +37,7 @@ def unzip(zipname, password=None):
     # Extract all members from the archive
     # zp.extractall()
     zp.close()
-    print("Done, created %s" % zipname)
+    print("Done")
 
 if __name__ == "__main__":
     parser = ArgumentParser()
