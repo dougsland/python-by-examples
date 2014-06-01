@@ -24,6 +24,7 @@ def _connect(ip, port):
     # connect() requires tuple
     sk.connect((ip, port))
     print str(sk.recv(1024)).strip()
+    sk.close()
 
 if __name__ == "__main__":
     if len(sys.argv) != 3:
