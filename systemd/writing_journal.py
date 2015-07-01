@@ -24,9 +24,13 @@ def _set_logger():
     log = logging.getLogger(__name__)
     log.propagate = False
     log.setLevel(logging.DEBUG)
-    log.addHandler(
-        journal.JournalHandler(SYSLOG_IDENTIFIER='my app')
-    )
+
+    formatter = logging.Formatter("%(name)s %(message)s")
+    jhandler = journal.JournalHandler()
+    jhandler.setLevel(logging.DEBUG)
+    jhandler.setFormatter(formatter)
+    log.addHandler(jhandler)
+
     return log
 
 if __name__ == "__main__":
