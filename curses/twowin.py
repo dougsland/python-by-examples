@@ -30,9 +30,14 @@ curses.noecho()
 # Remove cursor
 curses.curs_set(0)
 
+# Colors
+if curses.has_colors():
+    curses.start_color()
+    curses.init_pair(1, curses.COLOR_WHITE, curses.COLOR_BLUE)
+
 win1 = curses.newwin(0,0,0,0)
 win1.box()
-win1.addstr(1,1,"Press q to quit or F1 for help menu, use arrow keys!")
+win1.addstr(1,1,"Press q to quit or F2 for help menu, use arrow keys!")
 
 key_pressed = NO_KEY_PRESSED
 while key_pressed != ord('q'):
@@ -50,11 +55,14 @@ while key_pressed != ord('q'):
     if key_pressed == curses.KEY_LEFT:
         stdscr.addstr(2,1,"going left...")
 
-    if key_pressed == curses.KEY_F1:
+    if key_pressed == curses.KEY_F2:
 
         win2 = curses.newwin(20,50,10,20)
         win2.box()
-        win2.addstr(1,1,"F1 key pressed, enter to return!")
+        win2.addstr(1,1,"F2 key pressed, enter to return!")
+
+        win2.bkgd(' ', curses.color_pair(1))
+
         win2.refresh()
         win2.getch()
         del win2
